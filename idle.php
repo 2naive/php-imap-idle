@@ -1,4 +1,8 @@
 <?
+# @todo
+# recursive line checking based on lenght
+# check for response RFC
+# fread 4096 except mails
 require_once("cfg.php");
 
 define('UID', uniqid());
@@ -42,6 +46,7 @@ fclose($fp);
 
 function get_line($fp, $clean = FALSE)
     {
+    /*
         $line='';
         
         while(!feof($fp))
@@ -71,5 +76,8 @@ function get_line($fp, $clean = FALSE)
         
     */
  
+        $line = fgets($fp, 4096);
+        echo $line;
+        return $line;
     }  
 ?>
